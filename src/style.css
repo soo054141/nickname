@@ -37,10 +37,6 @@ header > p {
   align-items: center;
 }
 
-.nickname {
-  /* margin: 5rem 0rem; */
-}
-
 .nickname > h1 {
   font-size: 3rem;
   text-align: center;
