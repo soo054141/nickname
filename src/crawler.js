@@ -1,19 +1,9 @@
-const axios = require("axios");
-const cheerio = require("cheerio");
+// fetch(
+//   "https://stdict.korean.go.kr/api/search.do?key=2ACB7EF719126ADDB05C1EFCAF7E56EC&q=안녕&method=word_info"
+// ).then((response) => console.log(response));
 
-// axios를 활용해 AJAX로 HTML 문서를 가져오는 함수 구현
-async function getHTML() {
-  try {
-    return await axios.get(
-      "https://stdict.korean.go.kr/api/view.do?key=2ACB7EF719126ADDB05C1EFCAF7E56EC&method=TARGET_CODE&q=100"
-    );
-  } catch (error) {
-    console.error(error);
-  }
-}
+const request = new Request(
+  "https://stdict.korean.go.kr/api/search.do?key=2ACB7EF719126ADDB05C1EFCAF7E56EC&method=word_info"
+);
 
-getHTML().then((html) => {
-  let ulList = [];
-  const $ = cheerio.load(html.data);
-  console.log(ulList);
-});
+fetch(request).then((response) => response.blob());
